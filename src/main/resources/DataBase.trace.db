@@ -77,7 +77,7 @@ select next value for PERSON_SEQ [90036-210]
 	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:107)
 	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:824)
 	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:810)
-	at com.AppointmentsService.Main.main(Main.java:64)
+	at Main.main(Main.java:64)
 2022-07-06 20:06:26 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Sequenz "PERSON_SEQ" nicht gefunden
 Sequence "PERSON_SEQ" not found; SQL statement:
@@ -125,7 +125,7 @@ select next value for PERSON_SEQ [90036-210]
 	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:107)
 	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:824)
 	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:810)
-	at com.AppointmentsService.Main.main(Main.java:64)
+	at Main.main(Main.java:64)
 2022-07-06 20:07:23 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax Fehler in SQL Befehl "drop [*]SEQ_ID"; erwartet "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE, SYNONYM"
 Syntax error in SQL statement "drop [*]SEQ_ID"; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE, SYNONYM"; SQL statement:

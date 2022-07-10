@@ -1,4 +1,4 @@
-package com.AppointmentsService.model;
+package com.appointmentsService.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -16,9 +16,9 @@ public class Appointment {
     private int Semester;
     private LocalDateTime startDateTime;
     private LocalDateTime endDateTime;
-    private com.AppointmentsService.model.Course Course;
-    private com.AppointmentsService.model.Faculty Faculty;
-    private com.AppointmentsService.model.Location Location;
+    private com.appointmentsService.model.Course Course;
+    private com.appointmentsService.model.Faculty Faculty;
+    private com.appointmentsService.model.Location Location;
     private Person Organizer;
 
 

@@ -1,4 +1,4 @@
-package com.AppointmentsService.model;
+package com.appointmentsService.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,41 +11,41 @@ import jakarta.persistence.Table;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Entity
-@Table(name="PERSON")
-public class Person {
+@Table(name="FACULTY")
+public class Faculty {
     private static final AtomicInteger count = new AtomicInteger(0);
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PERSON_SEQ")
     @SequenceGenerator(name = "PERSON_SEQ", allocationSize = 1)
     private int ID;
-    @Column(name="NAME")
-    private String name;
+    @Column(name="TITLE")
+    private String Title;
 
-    public Person() {
-    }
+    public Faculty(){}
 
-    Person(String _Name){
+    Faculty(String _Title){
         this.ID = count.incrementAndGet();
-        this.name = _Name;
+        this.Title = _Title;
     }
 
     //---------------------------------------------------------
 
-    public void setName(String _Name){
-        this.name = _Name;
+    void setTitle(String _Title){
+        this.Title = _Title;
     }
 
     //---------------------------------------------------------
 
-    public String getName(){  return this.name; }
-    public int getID(){ return this.ID; }
+    String getName(){  return this.Title; }
+    int getID(){ return this.ID; }
+
+    //---------------------------------------------------------
 
     @Override
-    public String toString() {
-        return "Person{" +
-                "ID=" + ID +
-                ", Name='" + name + '\'' +
-                '}';
+    public String toString(){
+        return "Faculty{" +
+                "ID = " + ID +
+                ", Title = " + Title + "}";
     }
 }

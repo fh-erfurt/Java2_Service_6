@@ -1,7 +1,6 @@
-package com.AppointmentsService;
+package com.appointmentsService;
 
-import com.AppointmentsService.model.Appointment;
-import com.AppointmentsService.model.Person;
+import com.appointmentsService.model.Person;
 import jakarta.persistence.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

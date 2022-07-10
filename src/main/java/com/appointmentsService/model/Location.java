@@ -1,6 +1,11 @@
-package com.AppointmentsService.model;
+package com.appointmentsService.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 import java.util.concurrent.atomic.AtomicInteger;
@@ -11,7 +16,7 @@ public class Location {
     private static final AtomicInteger count = new AtomicInteger(0);
 
     @Id
-    @GeneratedValue(strategy = GenrationType.SEQUENCE, generator = "PERSON_SEQ")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PERSON_SEQ")
     @SequenceGenerator(name = "PERSON_SEQ", allocationSize = 1)
     private int ID;
     @Column(name="BUILDING")
