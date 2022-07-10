@@ -1,6 +1,11 @@
 package com.appointmentsService.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 import java.time.LocalDateTime;
@@ -10,17 +15,32 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Table(name="APPOINTMENTS")
 public class Appointment {
     private static final AtomicInteger count = new AtomicInteger(0);
-    private int ID;
-    private String Title;
-    private boolean isPublic;
-    private int Semester;
-    private LocalDateTime startDateTime;
-    private LocalDateTime endDateTime;
-    private com.appointmentsService.model.Course Course;
-    private com.appointmentsService.model.Faculty Faculty;
-    private com.appointmentsService.model.Location Location;
-    private Person Organizer;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PERSON_SEQ")
+    @SequenceGenerator(name = "PERSON_SEQ", allocationSize = 1)
+    private int ID;
+
+    @Column(name="TITLE")
+    private String Title;
+    @Column(name="ISPUBLIC")
+    private boolean isPublic;
+    @Column(name="SEMESTER")
+    private int Semester;
+    @Column(name="STARTDATETIME")
+    private LocalDateTime startDateTime;
+    @Column(name="ENDDATETIME")
+    private LocalDateTime endDateTime;
+    @Column(name="COURSE_ID")
+    private com.appointmentsService.model.Course Course;
+    @Column(name="FACULTY_ID")
+    private com.appointmentsService.model.Faculty Faculty;
+    @Column(name="LOCATION_ID")
+    private com.appointmentsService.model.Location Location;
+    @Column(name="PERSON_ID")
+    private com.appointmentsService.model.Person Person;
+
+    public Appointment(){}
 
     Appointment(String _Title, boolean _isPublic, int _Semester, LocalDateTime _Begin, LocalDateTime _End){
         this.ID = count.incrementAndGet();
@@ -30,9 +50,6 @@ public class Appointment {
         this.startDateTime = _Begin;
         this.endDateTime = _End;
     }
-    /*  Notes:
-        - class objects should be added seperately and/or null checked with long constructor paras
-     */
 
     //---------------------------------------------------------
 
@@ -45,12 +62,6 @@ public class Appointment {
     void setNewEnd(LocalDateTime _endDateTime){
         this.endDateTime = _endDateTime;
     }
-    /*  Notes:
-        - scan for existent Course/Faculty/Person/Loc and insert ref or Construct new one
-        - need scanning algorithm and perhaps datastore
-        - add/set methods for replacement/construction > where to decide which to use?
-        - class attributes automatically referenced by ID's or to do manually?
-     */
 
     //---------------------------------------------------------
 
@@ -62,4 +73,15 @@ public class Appointment {
     LocalDateTime getEndDateTime(){ return this.endDateTime; }
 
     //---------------------------------------------------------
+
+    @Override
+    public String toString(){
+        return "Appointment{" +
+                "ID = " + ID +
+                "Title = " + Title +
+                "isPublic = " + isPublic +
+                "Semester = " + Semester +
+                "Start = " + startDateTime +
+                "End = " + endDateTime + "}";
+    }
 }
