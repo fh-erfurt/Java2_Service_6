@@ -1,0 +1,132 @@
+2022-06-27 11:27:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax Fehler in SQL Befehl "create table Course(\000d\000aid bigint primary key,\000d\000atitle varchar(50),\000d\000aforSemester tinyint\000d\000a)\000d\000a\000d\000a[*]create table Faculty(\000d\000aid bigint primary key,\000d\000atitle varchar(50),\000d\000a)\000d\000a\000d\000acreate table Location(\000d\000aid bigint primary key,\000d\000abuilding varchar(50),\000d\000aroom varchar(10)\000d\000a)\000d\000a\000d\000acreate table Person(\000d\000aid bigint primary key,\000d\000afirstname varchar(50),\000d\000alastname varchar(50)\000d\000a)"
+Syntax error in SQL statement "create table Course(\000d\000aid bigint primary key,\000d\000atitle varchar(50),\000d\000aforSemester tinyint\000d\000a)\000d\000a\000d\000a[*]create table Faculty(\000d\000aid bigint primary key,\000d\000atitle varchar(50),\000d\000a)\000d\000a\000d\000acreate table Location(\000d\000aid bigint primary key,\000d\000abuilding varchar(50),\000d\000aroom varchar(10)\000d\000a)\000d\000a\000d\000acreate table Person(\000d\000aid bigint primary key,\000d\000afirstname varchar(50),\000d\000alastname varchar(50)\000d\000a)"; SQL statement:
+create table Course(
+id bigint primary key,
+title varchar(50),
+forSemester tinyint
+)
+
+create table Faculty(
+id bigint primary key,
+title varchar(50),
+)
+
+create table Location(
+id bigint primary key,
+building varchar(50),
+room varchar(10)
+)
+
+create table Person(
+id bigint primary key,
+firstname varchar(50),
+lastname varchar(50)
+) [42000-210]
+2022-06-27 11:27:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax Fehler in SQL Befehl "create table Faculty(\000d\000aid bigint primary key,\000d\000atitle varchar(50),\000d\000a[*])"; erwartet "identifier"
+Syntax error in SQL statement "create table Faculty(\000d\000aid bigint primary key,\000d\000atitle varchar(50),\000d\000a[*])"; expected "identifier"; SQL statement:
+create table Faculty(
+id bigint primary key,
+title varchar(50),
+) [42001-210]
+2022-07-06 19:50:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Sequenz "PERSON_SEQ" nicht gefunden
+Sequence "PERSON_SEQ" not found; SQL statement:
+select next value for PERSON_SEQ [90036-210]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:651)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:496)
+	at org.h2.message.DbException.get(DbException.java:227)
+	at org.h2.message.DbException.get(DbException.java:203)
+	at org.h2.command.Parser.readSequence(Parser.java:8483)
+	at org.h2.command.Parser.readTermWithIdentifier(Parser.java:5372)
+	at org.h2.command.Parser.readTerm(Parser.java:5205)
+	at org.h2.command.Parser.readFactor(Parser.java:3423)
+	at org.h2.command.Parser.readSum(Parser.java:3410)
+	at org.h2.command.Parser.readConcat(Parser.java:3375)
+	at org.h2.command.Parser.readCondition(Parser.java:3160)
+	at org.h2.command.Parser.readExpression(Parser.java:3076)
+	at org.h2.command.Parser.parseSelectExpressions(Parser.java:2876)
+	at org.h2.command.Parser.parseSelect(Parser.java:2893)
+	at org.h2.command.Parser.parseQueryPrimary(Parser.java:2783)
+	at org.h2.command.Parser.parseQueryTerm(Parser.java:2650)
+	at org.h2.command.Parser.parseQueryExpressionBody(Parser.java:2629)
+	at org.h2.command.Parser.parseQueryExpressionBodyAndEndOfQuery(Parser.java:2622)
+	at org.h2.command.Parser.parseQueryExpression(Parser.java:2615)
+	at org.h2.command.Parser.parseQuery(Parser.java:2576)
+	at org.h2.command.Parser.parsePrepared(Parser.java:707)
+	at org.h2.command.Parser.parse(Parser.java:674)
+	at org.h2.command.Parser.parse(Parser.java:644)
+	at org.h2.command.Parser.prepareCommand(Parser.java:551)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:615)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:553)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1116)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:92)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:288)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$1.doPrepare(StatementPreparerImpl.java:90)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$StatementPreparationTemplate.prepareStatement(StatementPreparerImpl.java:176)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl.prepareStatement(StatementPreparerImpl.java:75)
+	at org.hibernate.id.enhanced.SequenceStructure$1.getNextValue(SequenceStructure.java:100)
+	at org.hibernate.id.enhanced.PooledOptimizer.generate(PooledOptimizer.java:73)
+	at org.hibernate.id.enhanced.SequenceStyleGenerator.generate(SequenceStyleGenerator.java:536)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:114)
+	at org.hibernate.event.internal.DefaultMergeEventListener.saveTransientEntity(DefaultMergeEventListener.java:308)
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsTransient(DefaultMergeEventListener.java:247)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:179)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:76)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:107)
+	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:824)
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:810)
+	at com.AppointmentsService.Main.main(Main.java:64)
+2022-07-06 20:06:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Sequenz "PERSON_SEQ" nicht gefunden
+Sequence "PERSON_SEQ" not found; SQL statement:
+select next value for PERSON_SEQ [90036-210]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:651)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:496)
+	at org.h2.message.DbException.get(DbException.java:227)
+	at org.h2.message.DbException.get(DbException.java:203)
+	at org.h2.command.Parser.readSequence(Parser.java:8483)
+	at org.h2.command.Parser.readTermWithIdentifier(Parser.java:5372)
+	at org.h2.command.Parser.readTerm(Parser.java:5205)
+	at org.h2.command.Parser.readFactor(Parser.java:3423)
+	at org.h2.command.Parser.readSum(Parser.java:3410)
+	at org.h2.command.Parser.readConcat(Parser.java:3375)
+	at org.h2.command.Parser.readCondition(Parser.java:3160)
+	at org.h2.command.Parser.readExpression(Parser.java:3076)
+	at org.h2.command.Parser.parseSelectExpressions(Parser.java:2876)
+	at org.h2.command.Parser.parseSelect(Parser.java:2893)
+	at org.h2.command.Parser.parseQueryPrimary(Parser.java:2783)
+	at org.h2.command.Parser.parseQueryTerm(Parser.java:2650)
+	at org.h2.command.Parser.parseQueryExpressionBody(Parser.java:2629)
+	at org.h2.command.Parser.parseQueryExpressionBodyAndEndOfQuery(Parser.java:2622)
+	at org.h2.command.Parser.parseQueryExpression(Parser.java:2615)
+	at org.h2.command.Parser.parseQuery(Parser.java:2576)
+	at org.h2.command.Parser.parsePrepared(Parser.java:707)
+	at org.h2.command.Parser.parse(Parser.java:674)
+	at org.h2.command.Parser.parse(Parser.java:644)
+	at org.h2.command.Parser.prepareCommand(Parser.java:551)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:615)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:553)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1116)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:92)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:288)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$1.doPrepare(StatementPreparerImpl.java:90)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$StatementPreparationTemplate.prepareStatement(StatementPreparerImpl.java:176)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl.prepareStatement(StatementPreparerImpl.java:75)
+	at org.hibernate.id.enhanced.SequenceStructure$1.getNextValue(SequenceStructure.java:100)
+	at org.hibernate.id.enhanced.PooledOptimizer.generate(PooledOptimizer.java:73)
+	at org.hibernate.id.enhanced.SequenceStyleGenerator.generate(SequenceStyleGenerator.java:536)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:114)
+	at org.hibernate.event.internal.DefaultMergeEventListener.saveTransientEntity(DefaultMergeEventListener.java:308)
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsTransient(DefaultMergeEventListener.java:247)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:179)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:76)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:107)
+	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:824)
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:810)
+	at com.AppointmentsService.Main.main(Main.java:64)
+2022-07-06 20:07:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax Fehler in SQL Befehl "drop [*]SEQ_ID"; erwartet "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE, SYNONYM"
+Syntax error in SQL statement "drop [*]SEQ_ID"; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL, DOMAIN, TYPE, DATATYPE, AGGREGATE, SYNONYM"; SQL statement:
+drop SEQ_ID [42001-210]
