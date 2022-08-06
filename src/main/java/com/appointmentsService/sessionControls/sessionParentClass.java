@@ -32,7 +32,6 @@ public class sessionParentClass {
                 settings.put(Environment.HBM2DDL_AUTO, "create-drop"); // Kill me when u'r done
                 configuration.setProperties(settings);
 
-                // TODO Hier alle Entities registrieren
                 configuration.addAnnotatedClass(Appointment.class);
                 configuration.addAnnotatedClass(Course.class);
                 configuration.addAnnotatedClass(Faculty.class);

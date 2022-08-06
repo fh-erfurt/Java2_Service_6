@@ -32,13 +32,13 @@ public class Appointment {
     @Column(name="ENDDATETIME")
     private LocalDateTime endDateTime;
     @Column(name="COURSE_ID")
-    private com.appointmentsService.model.Course Course;
+    private int CourseID;
     @Column(name="FACULTY_ID")
-    private com.appointmentsService.model.Faculty Faculty;
+    private int FacultyID;
     @Column(name="LOCATION_ID")
-    private com.appointmentsService.model.Location Location;
+    private int LocationID;
     @Column(name="PERSON_ID")
-    private com.appointmentsService.model.Person Person;
+    private int PersonID;
 
     public Appointment(){}
 
@@ -64,6 +64,11 @@ public class Appointment {
     }
     public void setPublicMode(boolean _Mode){ this.isPublic = _Mode; }
     public void setSemester(int _Semester){ this.Semester = _Semester; }
+
+    public void setCourseID(int _CourseID) { this.CourseID = _CourseID; }
+    public void setFacultyID(int _FacultyID) { this.FacultyID = _FacultyID; }
+    public void setLocationID(int _LocID) { this.LocationID = _LocID; }
+    public void setPersonID(int _PersonID) { this.PersonID = _PersonID; }
 
     //---------------------------------------------------------
 
